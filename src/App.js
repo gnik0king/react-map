@@ -1,6 +1,56 @@
 import logo from './logo.svg';
 import './App.css';
+import {Map, GoogleApiWrapper, InfoWindow, Marker} from 'google-maps-react';
+import React, {Component} from 'react';
+import GMap from './Components/Map';
 
+const mapStyles ={
+  width:'75%',
+  height: '75%',
+  margin: 'auto'
+};
+
+
+export class MapContainer extends Component{
+  state = {
+    showingInfoWindow: false,
+    activeMarker: {},
+    selectedPlace: {}
+  };
+
+  onMarkerClick = (props, marker, e)=>
+  this.setState({
+    selectedPlace: props,
+    activeMarker: marker,
+    showingInfoWindow: true
+  });
+
+  onClose = props => {
+    if(this.state.showingInfoWindow){
+      this.setState({
+        showingInfoWindow:false,
+        activeMarker: null
+      });
+    }
+  };
+
+
+
+  render(){
+    return(
+    <Map>
+      
+    </Map>)
+  }
+}
+
+
+export default GoogleApiWrapper({
+  apiKey: 'AIzaSyCYXV9CyepKeyRmluagytd-8y5pd3pT04k'
+})(MapContainer);
+
+
+/*
 function App() {
   return (
     <div className="App">
@@ -21,3 +71,4 @@ function App() {
 }
 
 export default App;
+*/
