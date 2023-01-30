@@ -4,20 +4,18 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <iframe
+        width="450"
+        height="250"
+        frameborder="0" style="border:0"
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps/embed/v1/view
+          ?key=AIzaSyCYXV9CyepKeyRmluagytd-8y5pd3pT04k
+          &center=-33.8569,151.2152
+          &zoom=18
+          &maptype=satellite"
+        allowfullscreen>
+      </iframe>
     </div>
   );
 }
