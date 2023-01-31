@@ -5,7 +5,9 @@ import React, {Component} from 'react';
 //import GMap from './Components/Map';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import GoogleMapComponent from './Components/GoogleMapComponent';
-//import NavScrollExample from './Components/NavBar';
+//import BrandExample from './Components/NavBar';
+import BasicExample from './Components/NavBar';
+import NavScrollExample from './Components/NavBar';
 
 
 
@@ -13,7 +15,8 @@ import GoogleMapComponent from './Components/GoogleMapComponent';
 function App() {
   return (
     <div className="App">
-      <h2>How to Add Google Maps in React JS App</h2>
+      <NavScrollExample/>
+      <h2>Testing</h2>
       <GoogleMapComponent/>
     </div>
   );

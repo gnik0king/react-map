@@ -15,12 +15,12 @@ const mapStyles ={
         this.state = {
             cords: [
                 // TODO: Read coordinates from json file
-                {latitude: 51.507351, longitude: -0.127758},
-            {latitude: 31.046051, longitude: 34.851612},
-           {latitude: 51.165691, longitude: 10.451526},
-            {latitude: 52.215933, longitude: 19.134422},
-            {latitude: 50.0874654, longitude: 14.4212535},
-            {latitude: 7.5554942, longitude: 80.7137847},
+                {latitude: 47.256129, longitude: -122.486119},
+                {latitude: 47.336227, longitude: -122.333582},
+                {latitude: 47.457076, longitude: -122.481267},
+                {latitude: 47.573015, longitude: -122.218933},
+                {latitude: 47.680378, longitude: -122.065119},
+                {latitude: 47.646620, longitude: -121.921537},
             ]
         }
     }
