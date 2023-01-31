@@ -5,6 +5,7 @@ import React, {Component} from 'react';
 //import GMap from './Components/Map';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import GoogleMapComponent from './Components/GoogleMapComponent';
+//import NavScrollExample from './Components/NavBar';
 
 
 

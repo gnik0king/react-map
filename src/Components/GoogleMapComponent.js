@@ -14,6 +14,7 @@ const mapStyles ={
         super(props);
         this.state = {
             cords: [
+                // TODO: Read coordinates from json file
                 {latitude: 51.507351, longitude: -0.127758},
             {latitude: 31.046051, longitude: 34.851612},
            {latitude: 51.165691, longitude: 10.451526},
@@ -40,10 +41,10 @@ const mapStyles ={
         <Map
           google={this.props.google}
           style={mapStyles}
-          zoom={6}
+          zoom={15}
           initialCenter={{ 
-            lat: 9.96233, 
-            lng: 49.80404
+            lat: 47.679947, 
+            lng: -122.325473
         }}>
           {this.drawMarker()}
         </Map>
