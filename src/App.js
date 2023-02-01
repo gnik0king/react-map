@@ -8,6 +8,7 @@ import GoogleMapComponent from './Components/GoogleMapComponent';
 //import BrandExample from './Components/NavBar';
 import BasicExample from './Components/NavBar';
 import NavScrollExample from './Components/NavBar';
+import BorderExample from './Components/LocationPin';
 
 
 
@@ -16,6 +17,7 @@ function App() {
   return (
     <div className="App">
       <NavScrollExample/>
+      <BorderExample/>
       <h2>Testing</h2>
       <GoogleMapComponent/>
     </div>
