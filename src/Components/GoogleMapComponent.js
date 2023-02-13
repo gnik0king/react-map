@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Map, Marker, GoogleApiWrapper} from 'google-maps-react';
+import {Map, Marker, GoogleApiWrapper, InfoWindow} from 'google-maps-react';
 
 
 const mapStyles ={
@@ -19,7 +19,7 @@ const mapStyles ={
                 {latitude: 47.336227, longitude: -122.333582},
                 {latitude: 47.457076, longitude: -122.481267},
                 {latitude: 47.573015, longitude: -122.218933},
-                {latitude: 47.680378, longitude: -122.065119},
+                //{latitude: 47.680378, longitude: -122.065119},
                 {latitude: 47.646620, longitude: -121.921537},
             ]
         }
@@ -47,6 +47,22 @@ const mapStyles ={
             lng: -122.325473
         }}>
           {this.drawMarker()}
+          <Marker
+            title = {"Hellooo"}
+            name = {"PLACE01"}
+            position = {{lat: 47.680378, lng: -122.065119}} 
+            onMouseover={this.onMouseoverMarker}
+            onClick={this.onMarkerClick}/>
+            <InfoWindow
+            position={{
+              lat: 47.680378, lng: -122.065119
+            }}
+            onCloseClick={this.onInfoWindowClose}
+          >
+            <div>
+              <p>hello</p>
+            </div>
+          </InfoWindow>
         </Map>
     );
   }
