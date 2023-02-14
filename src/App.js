@@ -9,6 +9,7 @@ import GoogleMapComponent from './Components/GoogleMapComponent';
 import BasicExample from './Components/NavBar';
 import NavScrollExample from './Components/NavBar';
 import BorderExample from './Components/LocationPin';
+//import {withScriptjs} from "react-google-maps";
 
 
 
