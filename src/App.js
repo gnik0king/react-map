@@ -9,7 +9,10 @@ import GoogleMapComponent from './Components/GoogleMapComponent';
 import BasicExample from './Components/NavBar';
 import NavScrollExample from './Components/NavBar';
 import BorderExample from './Components/LocationPin';
+import Map01 from './Components/DirectionsTest';
+import LocationList from './Components/Locations';
 //import {withScriptjs} from "react-google-maps";
+//import {Grid} from '@react-ui-org/react-ui';
 
 
 
@@ -19,8 +22,14 @@ function App() {
     <div className="App">
       <NavScrollExample/>
       <BorderExample/>
-      <h2>Testing</h2>
-      <GoogleMapComponent/>
+      <h2>I love/hate this</h2>
+      
+      
+
+
+      
+      <Map01/>
+      
     </div>
   );
 }

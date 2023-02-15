@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
 import {Map, Marker, GoogleApiWrapper, InfoWindow} from 'google-maps-react';
-
+import {
+  withGoogleMap,
+  GoogleMap,
+  DirectionsRenderer
+} from 'react-google-maps';
 
 const mapStyles ={
     width:'75%',
@@ -19,7 +23,7 @@ const mapStyles ={
                 {latitude: 47.336227, longitude: -122.333582},
                 {latitude: 47.457076, longitude: -122.481267},
                 {latitude: 47.573015, longitude: -122.218933},
-                //{latitude: 47.680378, longitude: -122.065119},
+                {latitude: 47.680378, longitude: -122.065119},
                 {latitude: 47.646620, longitude: -121.921537},
             ]
         }
@@ -31,11 +35,24 @@ const mapStyles ={
        lat: store.latitude,
        lng: store.longitude
      }}
- 
-     onClick={() => console.log("Event Hanlder Called")} />
+     onClick={this.onMarkerClick} />
     })
   }
  
+  componentDidMount = () => {
+    navigator?.geolocation.getCurrentPosition(
+      ({ coords: { latitude: lat, longitude: lng } }) => {
+        const pos = { lat, lng };
+        this.setState({ currentLocation: pos, centerMarker: pos });
+      }
+    );
+    const currentLoc = this.state.currentLocation;
+
+
+  };
+
+
+
   render() {
     return (
         <Map
@@ -45,24 +62,23 @@ const mapStyles ={
           initialCenter={{ 
             lat: 47.679947, 
             lng: -122.325473
-        }}>
+        }}
+        >
           {this.drawMarker()}
+        
+          
+          
           <Marker
-            title = {"Hellooo"}
-            name = {"PLACE01"}
-            position = {{lat: 47.680378, lng: -122.065119}} 
+            title='this is you!!!!'
+            name = {"you are here"}
+            position = {this.state.currentLocation} 
             onMouseover={this.onMouseoverMarker}
-            onClick={this.onMarkerClick}/>
-            <InfoWindow
-            position={{
-              lat: 47.680378, lng: -122.065119
-            }}
-            onCloseClick={this.onInfoWindowClose}
-          >
-            <div>
-              <p>hello</p>
-            </div>
-          </InfoWindow>
+            onClick={this.onMarkerClick}>
+              <InfoWindow
+                onClick={() => this.setState(state => ({open: !state.open}))}>
+                  {"yo"}
+              </InfoWindow>
+            </Marker>
         </Map>
     );
   }
