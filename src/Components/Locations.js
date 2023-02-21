@@ -1,3 +1,4 @@
+/*
 import React from 'react';
 
 function LocationList() {
@@ -20,3 +21,31 @@ function LocationList() {
   }
 
   export default LocationList;
+  */
+
+  export const addressData = [
+    {
+      event: "Twitter Inc",
+      address: "Market Square, 1355 Market St #900, San Francisco, CA 94103",
+    },
+    {
+      event: "Square Inc",
+      address: "375 W Broadway, New York, NY 10012",
+    },
+    {
+      event: "Shopify Inc",
+      address: "131 Greene St, New York, NY 10012",
+    },
+    {
+      event: "Sunrun Inc",
+      address: "10 New Maple Ave, Pine Brook, NJ 07058",
+    },
+    {
+      event: "Adobe Inc",
+      address: "1540 Broadway, New York, NY 10036",
+    },
+    {
+      event: "B3 Alliance, Inc",
+      address: "140 Broadway 46th floor, New York, NY 10005",
+    },
+  ];

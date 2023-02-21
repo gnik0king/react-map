@@ -24,11 +24,13 @@ function App() {
       <BorderExample/>
       <h2>I love/hate this</h2>
       
-      
+      <div>
+        <GoogleMapComponent/>
+      </div>
 
 
       
-      <Map01/>
+      
       
     </div>
   );

@@ -6,6 +6,9 @@ import {
   DirectionsRenderer
 } from 'react-google-maps';
 
+import { addressData } from './geolocation';
+
+
 const mapStyles ={
     width:'75%',
     height: '75%',
@@ -18,7 +21,7 @@ const mapStyles ={
         super(props);
         this.state = {
             cords: [
-                // TODO: Read coordinates from json file
+                // TODO: Read coordinates from json file -> success
                 {latitude: 47.256129, longitude: -122.486119},
                 {latitude: 47.336227, longitude: -122.333582},
                 {latitude: 47.457076, longitude: -122.481267},
@@ -29,15 +32,42 @@ const mapStyles ={
         }
     }
 
+    /*
     drawMarker = () => {
     return this.state.cords.map((store, i) => {
-      return <Marker key={i} id={i} position={{
-       lat: store.latitude,
-       lng: store.longitude
+      return <Marker 
+              key={i}
+              id={i} 
+              position={{
+                lat: store.latitude,
+                lng: store.longitude
      }}
      onClick={this.onMarkerClick} />
     })
-  }
+    */
+
+    drawMarker = () => {
+      return (
+        addressData.map((geolocation, key) => {
+          return (
+            <Marker
+              key={key}
+              id={key}
+              position={{
+                lat: geolocation.lat,
+                lng: geolocation.lng
+              }}
+              onClick={this.onMarkerClick}
+              />
+          )
+        })
+      )
+    }
+  
+
+
+
+
  
   componentDidMount = () => {
     navigator?.geolocation.getCurrentPosition(
