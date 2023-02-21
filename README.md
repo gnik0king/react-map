@@ -68,3 +68,12 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+<----------------------------------------------IGNORE---------------------------------------------->
+
+
+<----------------------------------------------TODO---------------------------------------------->
+1. Find a way to show all markers with InfoWindow (GoogleMapComponent)
+2. Set directions using current location (DirectionTest)
+3. Geocode street address to lat/lng for map markers (GoogleMapComponent)
+4. Work with Alex
