@@ -21,7 +21,7 @@ function App() {
   return (
     <div className="App">
       <NavScrollExample/>
-      <BorderExample/>
+      
       <h2>I love/hate this</h2>
       
       <div>

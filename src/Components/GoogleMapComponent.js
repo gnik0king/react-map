@@ -10,9 +10,8 @@ import { addressData } from './geolocation';
 
 
 const mapStyles ={
-    width:'75%',
-    height: '75%',
-    margin: 'auto'
+    width:'50%',
+    height: '100%'
   };
   
   
@@ -53,12 +52,24 @@ const mapStyles ={
             <Marker
               key={key}
               id={key}
+              title={geolocation.address}
+              name={geolocation.name}
               position={{
                 lat: geolocation.lat,
                 lng: geolocation.lng
               }}
               onClick={this.onMarkerClick}
-              />
+              >
+                <InfoWindow
+                  position={{
+                    lat: geolocation.lat,
+                    lng: geolocation.lng
+                  }}
+                  onCloseClick={this.ONInfoWindowClose}
+                  onClick={() => this.setState(state => ({open: !state.open}))}>
+                    <h1>{geolocation.address}</h1>
+                  </InfoWindow>
+              </Marker>
           )
         })
       )
