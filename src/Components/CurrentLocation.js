@@ -1,10 +1,23 @@
 import React from 'react';
+import { ReactDOM } from 'react-dom';
+
+const mapStyles = {
+  map: {
+    position: 'absolute',
+    width: '50%',
+    height: '100%'
+  }
+};
 
 
+export class CurrentLocation extends React.Component{
+  
+}
 
+export default CurrentLocation;
 
-
-showCurrentLocation = () => {
+/*
+  showCurrentLocation = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         position => {
@@ -22,3 +35,4 @@ showCurrentLocation = () => {
       error => console.log(error)
     }
   }
+  */

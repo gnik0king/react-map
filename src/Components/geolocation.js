@@ -25,8 +25,8 @@ export const addressData = [
     },
     {
         name: "Event 5",
-        address:"9100 SE 42nd St, Mercer Island, WA 98040",
-        lat:47.8621524,
-        lng:-122.1647816
+        address:"14911 50th Ave SE, Everett, WA",
+        lat:47.862180,
+        lng:-122.164660
     },
   ];

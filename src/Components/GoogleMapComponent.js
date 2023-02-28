@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Map, Marker, GoogleApiWrapper, InfoWindow} from 'google-maps-react';
+import {Map, Marker, GoogleApiWrapper, InfoWindow, InfoBox} from 'google-maps-react';
 import {
   withGoogleMap,
   GoogleMap,
@@ -19,6 +19,11 @@ const mapStyles ={
     constructor(props){
         super(props);
         this.state = {
+            showingInfoWindow: false,   // hides/shows the InfoWindow
+            activeMarker:{},            // shows the active marker upon click
+            selectedPlace:{},           // shows the InfoWindow to the selected place upon a marker
+
+
             cords: [
                 // TODO: Read coordinates from json file -> success
                 {latitude: 47.256129, longitude: -122.486119},
@@ -30,6 +35,24 @@ const mapStyles ={
             ]
         }
     }
+
+
+  onMarkerClick = (props, marker, e) =>
+    this.setState({
+      selectedPlace: props,
+      activeMarker: marker,
+      showingInfoWindow: true
+    });
+
+  onClose = props => {
+    if (this.state.showingInfoWindow) {
+      this.setState({
+        showingInfoWindow: false,
+        activeMarker: null
+      });
+    }
+  };
+
 
     /*
     drawMarker = () => {
@@ -45,6 +68,8 @@ const mapStyles ={
     })
     */
 
+  
+    // Draws markers using info from json file
     drawMarker = () => {
       return (
         addressData.map((geolocation, key) => {
@@ -52,7 +77,7 @@ const mapStyles ={
             <Marker
               key={key}
               id={key}
-              title={geolocation.address}
+              title={geolocation.name}
               name={geolocation.name}
               position={{
                 lat: geolocation.lat,
@@ -61,25 +86,23 @@ const mapStyles ={
               onClick={this.onMarkerClick}
               >
                 <InfoWindow
-                  position={{
-                    lat: geolocation.lat,
-                    lng: geolocation.lng
-                  }}
-                  onCloseClick={this.ONInfoWindowClose}
-                  onClick={() => this.setState(state => ({open: !state.open}))}>
-                    <h1>{geolocation.address}</h1>
-                  </InfoWindow>
+                marker={this.state.activeMarker}
+                visible={this.state.showingInfoWindow}
+                onClose={this.onClose}
+              >
+                <div>
+                  <h4>
+                    {this.state.selectedPlace.name}
+                  </h4>
+                </div>
+              </InfoWindow>
               </Marker>
           )
         })
       )
     }
-  
 
-
-
-
- 
+// Should show users current location 
   componentDidMount = () => {
     navigator?.geolocation.getCurrentPosition(
       ({ coords: { latitude: lat, longitude: lng } }) => {
@@ -95,11 +118,15 @@ const mapStyles ={
 
 
   render() {
+    const onLoad = infoWindow => {
+      console.log('infoWindow: ', infoWindow)
+    }
     return (
         <Map
           google={this.props.google}
           style={mapStyles}
           zoom={15}
+          onClick={this.onMarkerClick}
           initialCenter={{ 
             lat: 47.679947, 
             lng: -122.325473
@@ -110,15 +137,20 @@ const mapStyles ={
           
           
           <Marker
-            title='this is you!!!!'
-            name = {"you are here"}
+            title='Current Location'
+            name = {'Current Location'}
             position = {this.state.currentLocation} 
-            onMouseover={this.onMouseoverMarker}
+            
             onClick={this.onMarkerClick}>
-              <InfoWindow
-                onClick={() => this.setState(state => ({open: !state.open}))}>
-                  {"yo"}
-              </InfoWindow>
+              <InfoBox
+                position={this.state.currentLocation}
+              >
+                <div style={{ backgroundColor: 'yellow', opacity: 0.75, padding: 12 }}>
+                  <div style={{ fontSize: 16, fontColor: `#08233B` }}>
+                    Hello, World!
+                  </div>
+                </div>
+              </InfoBox>
             </Marker>
         </Map>
     );
@@ -128,6 +160,21 @@ const mapStyles ={
 export default GoogleApiWrapper({
     apiKey: 'AIzaSyCYXV9CyepKeyRmluagytd-8y5pd3pT04k'
   })(GoogleMapComponent);
+
+/*
+<InfoWindow
+                marker={this.state.activeMarker}
+                visible={this.state.showingInfoWindow}
+                onClose={this.onClose}
+                onLoad={onLoad}
+              >
+                <div>
+                  <h4>
+                    {this.state.selectedPlace.name}
+                  </h4>
+                </div>
+              </InfoWindow>
+*/
 
 /*
 

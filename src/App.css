@@ -36,3 +36,34 @@
     transform: rotate(360deg);
   }
 }
+
+
+.grid-container{
+  display: inline;
+}
+.wrapper{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+.one{
+  grid-column: 1;
+  grid-row: 2;
+}
+.two{
+  grid-column: 2;
+  grid-row: 1;
+}
+
+
+table{
+  display: flex;
+  justify-content: center;
+  border: #282c34 1px solid;
+}
+td{
+  border: #282c34 1px solid;
+  width: 30em;
+  border-right: #282c34 1px solid;
+}

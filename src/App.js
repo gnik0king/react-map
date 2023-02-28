@@ -11,6 +11,7 @@ import NavScrollExample from './Components/NavBar';
 import BorderExample from './Components/LocationPin';
 import Map01 from './Components/DirectionsTest';
 import LocationList from './Components/Locations';
+import { Displayed } from './Components/DisplayAddresses';
 //import {withScriptjs} from "react-google-maps";
 //import {Grid} from '@react-ui-org/react-ui';
 
@@ -22,13 +23,17 @@ function App() {
     <div className="App">
       <NavScrollExample/>
       
-      <h2>I love/hate this</h2>
+      <h2>Map</h2>
       
-      <div>
-        <GoogleMapComponent/>
+
+      <div class="wrapper">
+        <div class="one">
+          <Displayed/>
+        </div>
+        <div class="two">
+          <GoogleMapComponent/>
+        </div>
       </div>
-
-
       
       
       
